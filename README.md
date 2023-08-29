@@ -1,17 +1,17 @@
-# Ray's Adventure
+# Great Lakes Support
 
-This directory will be used to develop, test, and release the Chicago Pod's text-based game, Ray's Adventure.
+This directory will be used to develop, test, and release the [Chicago Support Pod's](https://liferay.atlassian.net/wiki/spaces/SUPPORT/pages/1913815053/Chicago+Pod+-+NA+Support) Hack Week and coding session projects.
 
-From a high-level administrative perspective, we will each have a Fork of this repository, then use Pull Requests to submit and review code (merged into our local Forks). Ideally, we would use multiple branches in order to manage code but at this point we are just using the `develop` branch for our work. Nevertheless, we have the three branches below present in the repo in case we use them in the future.
+From a high-level administrative perspective, we will each have a [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) of this repository, then use [Pull Requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request?tool=webui) to submit and review code (merged into our local Forks). Ideally, we would use multiple branches in order to manage code but at this point we are just using the `develop` branch for our work. Nevertheless, we have the three branches below present in the repo in case we use them in the future.
 
-Currently, we are only using `develop` and are not making use of `QA` and `master`. The description below is an ideal of what we hope to eventually get to in order to align our project with real-world use of Github:
+Currently, we are only using `develop` and are not making use of `QA` and `master`. The description below is an ideal of what we hope to eventually get to in order to align our projects with real-world use of GitHub:
 1. `develop` will be the branch with all the latest code changes, being updated as we go (it may or may not be in a “working” state at a given time, depending on how complete merged changes are). This branch, for example, would be where we merge our changes at the end of the day so that others in the Pod can see what we’ve been working on in our local repo.
 2. `QA` will be the latest “stable” version. Changes in this branch will be sourced from modifications in the develop branch, once those commits have been reviewed and are ready to be added to the other completed portions of the game (to be tested with the already completed game aspects to ensure that the new changes don’t break anything previously submitted).
 3. Once changes have been QA tested, they will be merged from QA into the `master` branch, which will be the “public” version of the game (i.e., a working version that can be played with the files in their current state).
 
 ### Initial Setup
 
-Assuming that Git has already been installed ([see here](https://grow.liferay.com/people/Environment+Setup+for+TS+Work+-+Ubuntu#section-Environment+Setup+for+TS+Work+-+Ubuntu-Git) if needed) on our local machines and we've created a GitHub account, the next step is to make and prepare our Fork:
+Assuming that Git has already been installed ([see here](https://liferay.atlassian.net/wiki/spaces/SUPPORT/pages/1961066586/Environment+Setup+for+TS+Work+-+Ubuntu#Git) if needed) on our local machines and we've created a GitHub account, the next step is to make and prepare our Fork:
 1. Navigate to [LiferayChicagoPod:develop](https://github.com/LiferayChicagoPod/great-lakes-support/tree/develop) in a browser window, then click the "Fork" button in the upper right and select where to fork this repository (your own user's repository, in this case).
 2. While viewing the Fork in a browser page, copy the repo's SSH address (using the "Code ▾" and copy buttons)
 3. Open a local terminal where the working repository will be located on your local machine (for example, in a directory called /git), then execute: `git clone [copied text]` (for example, `git clone git@github.com:WilsonIsaac/great-lakes-support.git`). You should now have a "great-lakes-support" directory present
@@ -28,6 +28,8 @@ Optional, but recommended: [edit your bash to display the current directory name
 ### Create a new branch
 
 To checkout a different branch than `develop` (such as `master`), simply run `git checkout master`. Because this `master` branch already exists in the primary repository, this will create and switch to a new branch in our fork that will be connected to the primary repository's `master` branch. You can similarly create other new branches (if you'd like) in your personal repository by adding the -b flag; for example: `git checkout -b new-branch-name`
+
+Note: creating a new branch is only necessary for larger projects -- for smaller projects, we can work directly on `develop`.
 
 ### Daily process
 To more specifically detail our day-to-day coding steps:
@@ -52,9 +54,9 @@ You have now synced your local files with the remote files.
 * `git push origin develop`
   * This is the command that will upload our local repository content (the commit changes) to the remote repository (our Fork on GitHub)
 
-At this point, you can check your Fork on Github and should see a note that says something like “This branch is 1 commit ahead of [LiferayChicagoPod:develop](https://github.com/LiferayChicagoPod/great-lakes-support).”
+At this point, you can check your Fork on GitHub and should see a note that says something like “This branch is 1 commit ahead of [LiferayChicagoPod:develop](https://github.com/LiferayChicagoPod/great-lakes-support).”
 
-4. Now that changes are on your personal Github account, you can create a pull request at https://github.com/LiferayChicagoPod/great-lakes-support/pulls requesting that your changes be merged into upstream. Make sure you are using the correct branch in your pull request and double check the files that it detects as being changed. These changes will be reviewed and merged at the beginning of each coding session.
+4. Now that changes are on your personal GitHub account, you can create a pull request at https://github.com/LiferayChicagoPod/great-lakes-support/pulls requesting that your changes be merged into upstream. Make sure you are using the correct branch in your pull request and double check the files that it detects as being changed. These changes will be reviewed and merged at the beginning of each coding session.
 
 Note: After the PR is merged, you may see a "this branch is 1 commit behind" message when viewing your Fork in GitHub. This can be ignored, as since our Fork did not have the action of merging in our pushed changes, the message is expected. However, to resolve the messages we can run the following (replacing the branch name for the one being aligned):
 * `git checkout master`
@@ -65,4 +67,16 @@ Note: After the PR is merged, you may see a "this branch is 1 commit behind" mes
 1. Cloning the repository: https://help.github.com/en/articles/cloning-a-repository
 2. Connect local repo to remote repo: https://gist.github.com/mindplace/b4b094157d7a3be6afd2c96370d39fad#connect-your-local-project-folder-to-your-empty-folderrepository-on-github. 
 3. Basic Git commands: https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners
-4. If you receive errors related to keys for pushing to the repo: https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account
+4. If you receive errors related to keys for pushing to the repo: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent and https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account
+
+### Historic Project List:
+1. Project Euler Exercises -- simple progtramming practice problems, worked on in Hack Weeks prior to 2021.
+2. Ray's Adventure -- a text-based Java adventure game, worked on over multiple Hack Week sessions (spanning parts of 2021-2022).
+3. TimeTracker -- a Java-based, simple time tracker; our Q3 2023 project.
+
+### Future Project Ideas:
+1. Liar’s Dice Calculator (potential Q4 2023 project)
+2. EVP: “Database” (using 7.4 Objects) of past and potential opportunities
+3. EVP: Script/program/POC to port metadata from a service request into a grant request
+4. Gradle project (following a Liferay woekspace tutorial)
+5. Add additional features to Dia’s [quickLR](https://github.com/dianaseung/quickLR) project (such as: multiple-node environment setups for clustering or SAML)
