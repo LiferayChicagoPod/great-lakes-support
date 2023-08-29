@@ -6,3 +6,5 @@ This directory will be used to develop, test, and release the Chicago Pod's Q3 2
 
 Participants:
 - Dia Seung
+- Isaac Wilson
+- 
