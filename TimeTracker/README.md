@@ -2,3 +2,9 @@
 
 This directory will be used to develop, test, and release the Chicago Pod's Q3 2023 Hack Week project, a Time Tracker.
 
+---
+
+Participants:
+- Dia Seung
+- Isaac Wilson
+- 
