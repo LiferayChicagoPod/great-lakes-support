@@ -35,7 +35,7 @@ public class Cell {
 		return adjacentMines;
 	}
 
-	public void setNumberOfAdjacentMines(int adjacentMines) {
+	public void setAdjacentMines(int adjacentMines) {
 		this.adjacentMines = adjacentMines;
 	}
 
