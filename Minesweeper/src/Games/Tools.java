@@ -6,8 +6,10 @@ import java.util.Scanner;
 
 public class Tools {
 
+	static Scanner scanner = new Scanner(System.in);
+
 	public static int getWholeNumberInput() {
-		Scanner scanner = new Scanner(System.in);
+
 		String placeholder = "";
 		int toReturn = -1;
 
@@ -27,7 +29,6 @@ public class Tools {
 	 */
 	public static int getWholeNumberInput(int[] choices) {
 
-		Scanner scanner = new Scanner(System.in);
 		String placeholder = "";
 		int toReturn = -1;
 
@@ -64,8 +65,6 @@ public class Tools {
 	 * It is assumed that choices is filled with Strings
 	 */
 	public static int getWholeNumberInput(String[] choices) {
-
-		Scanner scanner = new Scanner(System.in);
 
 		// the original string the user enters
 		String userInput = "";
@@ -106,8 +105,6 @@ public class Tools {
 	 * It is assumed that choices is filled with Strings
 	 */
 	public static int getWholeNumberInput(ArrayList<String> choices) {
-
-		Scanner scanner = new Scanner(System.in);
 
 		// the original string the user enters
 		String userInput = "";

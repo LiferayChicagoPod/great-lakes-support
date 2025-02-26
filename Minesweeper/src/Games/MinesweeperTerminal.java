@@ -20,6 +20,6 @@ public class MinesweeperTerminal {
 	}
 
 	public static void createBoard() {
-		// dummy class
+		System.out.print("Dummy method");
 	}
 }
