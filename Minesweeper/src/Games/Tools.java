@@ -21,11 +21,11 @@ public class Tools {
 //				toReturn = Integer.parseInt(placeholder);
 
 				if (toReturn < 1) {
-					System.out.println("Please enter a positive integer.\n");
+					System.out.println("Please enter a positive integer.");
 				}
 
 			} catch (InputMismatchException e) {
-				System.out.println("Invalid input, please enter an integer.\n");
+				System.out.println("Invalid input, please enter an integer.");
 				scanner.next(); // Clear the invalid input from the scanner
 			}
 		}
