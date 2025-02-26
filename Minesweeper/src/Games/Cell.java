@@ -7,12 +7,12 @@ public class Cell {
 	private boolean revealed;
 	private int adjacentMines;
 
-	public boolean isMine() {
-		return mine;
+	public Cell(boolean mine) {
+		this.mine = mine;
 	}
 
-	public void setMine(boolean mine) {
-		this.mine = mine;
+	public boolean isMine() {
+		return mine;
 	}
 
 	public boolean isFlagged() {
