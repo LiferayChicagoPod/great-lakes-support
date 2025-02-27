@@ -9,16 +9,12 @@ public class Tools {
 
 	public static int getWholeNumberInput() {
 
-//		String placeholder = "";
 		Integer toReturn = -1;
 
 		while (toReturn < 1) {
-//		while ((toReturn < 1) | (toReturn != (int) toReturn)) {
-//			System.out.println("Please enter a positive whole number.");
-//			placeholder = scanner.nextLine();
+
 			try {
 				toReturn = scanner.nextInt();
-//				toReturn = Integer.parseInt(placeholder);
 
 				if (toReturn < 1) {
 					System.out.println("Please enter a positive integer.");
@@ -31,6 +27,7 @@ public class Tools {
 		}
 		return toReturn;
 	}
+
 //
 //	/*
 //	 * It is assumed that choices is filled with whole numbers
