@@ -11,14 +11,12 @@ public class Main {
 		int choice = -1;
 
 		do {
-//			try {
+
 			// get user game choice (we can add more games in to the menu in the future
 			System.out.println("\nSelect a Game \n\t1: Minesweeper \n\t2: Exit");
-//				choice = input.nextInt();
 			choice = Tools.getWholeNumberInput();
 
 			if (choice == 1) {
-				// call the MinesweeperTerminal.createBoard() method to start Minesweeper
 				MinesweeperTerminal.createBoard();
 			}
 
@@ -28,10 +26,6 @@ public class Main {
 			} else {
 				System.out.println("Please enter a number from the menu");
 			}
-//			} catch (InputMismatchException e) {
-//				System.out.println("Invalid input. Please enter an integer.");
-//				input.next(); // Clear the invalid input from the scanner
-//			}
 		} while (true);
 
 	}

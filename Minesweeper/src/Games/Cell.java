@@ -7,6 +7,10 @@ public class Cell {
 	private boolean revealed;
 	private int adjacentMines;
 
+	public Cell() {
+		this(true);
+	}
+
 	public Cell(boolean mine) {
 		this.mine = mine;
 	}
@@ -36,7 +40,11 @@ public class Cell {
 	}
 
 	public void setAdjacentMines(int adjacentMines) {
-		this.adjacentMines = adjacentMines;
+		this.adjacentMines += adjacentMines;
+	}
+
+	public int getAdjacentMines() {
+		return adjacentMines;
 	}
 
 }
