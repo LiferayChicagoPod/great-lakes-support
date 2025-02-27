@@ -13,7 +13,9 @@ public class Main {
 		do {
 
 			// get user game choice (we can add more games in to the menu in the future
-			System.out.println("\nSelect a Game \n\t1: Minesweeper \n\t2: Exit");
+			System.out.println("\nSelect a Game \n\t1: Minesweeper \n\t2: Exit\n");
+			System.out.print("Enter selection here: ");
+
 			choice = Tools.getWholeNumberInput();
 
 			if (choice == 1) {

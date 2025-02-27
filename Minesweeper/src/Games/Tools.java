@@ -21,7 +21,7 @@ public class Tools {
 				}
 
 			} catch (InputMismatchException e) {
-				System.out.println("Invalid input, please enter an integer.");
+				System.out.print("Invalid input, please enter an integer: ");
 				scanner.next(); // Clear the invalid input from the scanner
 			}
 		}
