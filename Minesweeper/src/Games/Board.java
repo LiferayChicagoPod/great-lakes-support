@@ -45,26 +45,7 @@ public class Board {
 		setAdjacentMines();
 	}
 
-	public void printBoard() {
-		for (int i = 0; i < boardArray.length; i++) {
-			for (int j = 0; j < boardArray[i].length; j++) {
-				if (boardArray[i][j].isRevealed()) {
-
-					System.out.print(boardArray[i][j].getAdjacentMines());
-
-				} else if (boardArray[i][j].isFlagged()) {
-					// if the square is flagged, print a triangle symbol (unicode \u25B7)
-					System.out.print('\u25B7');
-				} else {
-					// if the square is flagged, print a square symbol (unicode \u25A1)
-					System.out.print('\u25A1');
-				}
-			}
-			System.out.println("");
-		}
-	}
-
-	public void setAdjacentMines() {
+	private void setAdjacentMines() {
 		// checks all in bounds adjacent cells and increases the cell's adjacent mines
 		// if they're mines
 		for (int i = 0; i < boardArray.length; i++) {
@@ -110,6 +91,25 @@ public class Board {
 					}
 				}
 			}
+		}
+	}
+
+	public void printBoard() {
+		for (int i = 0; i < boardArray.length; i++) {
+			for (int j = 0; j < boardArray[i].length; j++) {
+				if (boardArray[i][j].isRevealed()) {
+
+					System.out.print(boardArray[i][j].getAdjacentMines());
+
+				} else if (boardArray[i][j].isFlagged()) {
+					// if the square is flagged, print a triangle symbol (unicode \u25B7)
+					System.out.print('\u25B7');
+				} else {
+					// if the square is flagged, print a square symbol (unicode \u25A1)
+					System.out.print('\u25A1');
+				}
+			}
+			System.out.println("");
 		}
 	}
 
