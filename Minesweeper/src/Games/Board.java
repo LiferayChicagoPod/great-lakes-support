@@ -69,22 +69,22 @@ public class Board {
 		// if they're mines
 		for (int i = 0; i < boardArray.length; i++) {
 			for (int j = 0; j < boardArray[i].length; j++) {
-				if ((i - 1 > 0) && (j - 1 > 0)) {
+				if ((i - 1 >= 0) && (j - 1 >= 0)) {
 					if (boardArray[i - 1][j - 1].isMine()) {
 						boardArray[i][j].setAdjacentMines(1);
 					}
 				}
-				if ((i - 1 > 0)) {
+				if ((i - 1 >= 0)) {
 					if (boardArray[i - 1][j].isMine()) {
 						boardArray[i][j].setAdjacentMines(1);
 					}
 				}
-				if ((i - 1 > 0) && (j + 1 < boardArray[i].length)) {
+				if ((i - 1 >= 0) && (j + 1 < boardArray[i].length)) {
 					if (boardArray[i - 1][j + 1].isMine()) {
 						boardArray[i][j].setAdjacentMines(1);
 					}
 				}
-				if (j - 1 > 0) {
+				if (j - 1 >= 0) {
 					if (boardArray[i][j - 1].isMine()) {
 						boardArray[i][j].setAdjacentMines(1);
 					}
@@ -94,7 +94,7 @@ public class Board {
 						boardArray[i][j].setAdjacentMines(1);
 					}
 				}
-				if ((i + 1 < boardArray.length) && (j - 1 > 0)) {
+				if ((i + 1 < boardArray.length) && (j - 1 >= 0)) {
 					if (boardArray[i + 1][j - 1].isMine()) {
 						boardArray[i][j].setAdjacentMines(1);
 					}
