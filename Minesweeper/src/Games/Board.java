@@ -30,7 +30,7 @@ public class Board {
 				// Creates mines randomly until all mines are used
 				// I still need to figure out how to make sure the mines are evenly distributed
 				// and all the mines are used
-				if (mineCounter <= mines) {
+				if (mineCounter < mines) {
 					boolean isMine = Math.random() < 0.5;
 					boardArray[i][j] = new Cell(isMine);
 
@@ -108,8 +108,11 @@ public class Board {
 			for (int j = 0; j < boardArray[i].length; j++) {
 				if (boardArray[i][j].isRevealed()) {
 
-					System.out.print(" " + boardArray[i][j].getAdjacentMines());
-
+					if (boardArray[i][j].isMine()) {
+						System.out.print(" X");
+					} else {
+						System.out.print(" " + boardArray[i][j].getAdjacentMines());
+					}
 				} else if (boardArray[i][j].isFlagged()) {
 					// if the square is flagged, print a triangle symbol (unicode \u25B7)
 					System.out.print('\u25B7');
