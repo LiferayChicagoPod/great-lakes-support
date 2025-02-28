@@ -19,7 +19,7 @@ public class Main {
 			choice = Tools.getWholeNumberInput();
 
 			if (choice == 1) {
-				MinesweeperTerminal.createBoard();
+				MinesweeperTerminal.playMinesweeper();
 			}
 
 			else if (choice == 2) {
