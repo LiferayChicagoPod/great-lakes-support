@@ -125,6 +125,16 @@ public class Board {
 		}
 	}
 
+	public void printDummyBoard() {
+		for (int i = 0; i < boardArray.length; i++) {
+			for (int j = 0; j < boardArray[i].length; j++) {
+				// if the square is flagged, print a square symbol (unicode \u25A1)
+				System.out.print(" " + '\u25A1');
+				}
+			System.out.println("");
+		}
+	}
+
 	public int getRows() {
 		return rows;
 	}

@@ -13,7 +13,7 @@ public class MinesweeperTerminal {
 		// that we don't have to know which board type was created to proceed
 		Board board = createBoard();
 		board.printBoard();
-		// updateBoardState();
+		updateBoardState(board);
 	}
 
 	// returns a board object
@@ -36,6 +36,7 @@ public class MinesweeperTerminal {
 			if (choice == 1) {
 				// create an Easy Board (8x8, 10 mines)
 				Board easyBoard = new Board(8, 8, 10);
+				easyBoard.printDummyBoard();
 				return easyBoard;
 			}
 
@@ -66,6 +67,10 @@ public class MinesweeperTerminal {
 			}
 
 		} while (true);
+
+	}
+
+	public static void updateBoardState(Board board){
 
 	}
 
