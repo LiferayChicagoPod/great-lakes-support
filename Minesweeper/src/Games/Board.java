@@ -134,7 +134,7 @@ public class Board {
 			for (int j = 0; j < boardArray[i].length; j++) {
 				// if the square is flagged, print a square symbol (unicode \u25A1)
 				System.out.print(" " + '\u25A1');
-			}
+				}
 			System.out.println("");
 		}
 	}
