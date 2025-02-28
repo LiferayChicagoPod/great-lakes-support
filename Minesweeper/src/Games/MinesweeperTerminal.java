@@ -23,6 +23,8 @@ public class MinesweeperTerminal {
 		int rows = -1;
 		int columns = -1;
 		int mines = -1;
+		int firstrow = -1;
+		int firstcolumn = -1;
 
 		do {
 			System.out.println("What level difficulty would you like to play today?");
@@ -37,18 +39,44 @@ public class MinesweeperTerminal {
 				// create an Easy Board (8x8, 10 mines)
 				Board easyBoard = new Board(8, 8, 10);
 				easyBoard.printDummyBoard();
+				System.out.println("");
+				System.out.println("Please enter the row and column for the square of your initial guess.");
+				System.out.print("Row?: ");
+				firstrow = Tools.getWholeNumberInput();
+				System.out.print("Column?: ");
+				firstcolumn = Tools.getWholeNumberInput();
+				boardArray[firstrow][firstcolumn].setRevealed(true);
+				easyBoard.setMines();
 				return easyBoard;
 			}
 
 			else if (choice == 2) {
 				// create Medium Board (16x16, 40 mines)
 				Board mediumBoard = new Board(16, 16, 40);
+				mediumBoard.printDummyBoard();
+				System.out.println("");
+				System.out.println("Please enter the row and column for the square of your initial guess.");
+				System.out.print("Row?: ");
+				firstrow = Tools.getWholeNumberInput();
+				System.out.print("Column?: ");
+				firstcolumn = Tools.getWholeNumberInput();
+				boardArray[firstrow][firstcolumn].setRevealed(true);
+				mediumBoard.setMines();
 				return mediumBoard;
 			}
 
 			else if (choice == 3) {
 				// create Hard Board (30x16, 99)
 				Board hardBoard = new Board(30, 16, 99);
+				hardBoard.printDummyBoard();
+				System.out.println("");
+				System.out.println("Please enter the row and column for the square of your initial guess.");
+				System.out.print("Row?: ");
+				firstrow = Tools.getWholeNumberInput();
+				System.out.print("Column?: ");
+				firstcolumn = Tools.getWholeNumberInput();
+				boardArray[firstrow][firstcolumn].setRevealed(true);
+				hardBoard.setMines();
 				return hardBoard;
 			}
 
@@ -61,6 +89,15 @@ public class MinesweeperTerminal {
 				System.out.print("How many mines would you like to have? Enter selection here: ");
 				mines = Tools.getWholeNumberInput();
 				Board customBoard = new Board(rows, columns, mines);
+				customBoard.printDummyBoard();
+				System.out.println("");
+				System.out.println("Please enter the row and column for the square of your initial guess.");
+				System.out.print("Row?: ");
+				firstrow = Tools.getWholeNumberInput();
+				System.out.print("Column?: ");
+				firstcolumn = Tools.getWholeNumberInput();
+				boardArray[firstrow][firstcolumn].setRevealed(true);
+				customBoard.setMines();
 				return customBoard;
 			} else {
 				System.out.println("Please enter a number from the menu\n");
