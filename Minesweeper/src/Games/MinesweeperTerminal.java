@@ -45,8 +45,7 @@ public class MinesweeperTerminal {
 				firstrow = Tools.getWholeNumberInput();
 				System.out.print("Column?: ");
 				firstcolumn = Tools.getWholeNumberInput();
-				boardArray[firstrow][firstcolumn].setRevealed(true);
-				easyBoard.setMines();
+				easyBoard.setMines(firstrow, firstcolumn);
 				return easyBoard;
 			}
 
@@ -60,8 +59,7 @@ public class MinesweeperTerminal {
 				firstrow = Tools.getWholeNumberInput();
 				System.out.print("Column?: ");
 				firstcolumn = Tools.getWholeNumberInput();
-				boardArray[firstrow][firstcolumn].setRevealed(true);
-				mediumBoard.setMines();
+				mediumBoard.setMines(firstrow, firstcolumn);
 				return mediumBoard;
 			}
 
@@ -75,8 +73,7 @@ public class MinesweeperTerminal {
 				firstrow = Tools.getWholeNumberInput();
 				System.out.print("Column?: ");
 				firstcolumn = Tools.getWholeNumberInput();
-				boardArray[firstrow][firstcolumn].setRevealed(true);
-				hardBoard.setMines();
+				hardBoard.setMines(firstrow, firstcolumn);
 				return hardBoard;
 			}
 
@@ -96,8 +93,7 @@ public class MinesweeperTerminal {
 				firstrow = Tools.getWholeNumberInput();
 				System.out.print("Column?: ");
 				firstcolumn = Tools.getWholeNumberInput();
-				boardArray[firstrow][firstcolumn].setRevealed(true);
-				customBoard.setMines();
+				customBoard.setMines(firstrow, firstcolumn);
 				return customBoard;
 			} else {
 				System.out.println("Please enter a number from the menu\n");
@@ -107,7 +103,7 @@ public class MinesweeperTerminal {
 
 	}
 
-	public static void updateBoardState(Board board){
+	public static void updateBoardState(Board board) {
 
 	}
 

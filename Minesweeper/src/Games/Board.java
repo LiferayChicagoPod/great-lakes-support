@@ -35,14 +35,16 @@ public class Board {
 		}
 	}
 
-	public void setMines() {
+	public void setMines(int i, int j) {
+
+		boardArray[i - 1][j - 1].setRevealed(true);
 
 		Integer mineCounter = 0;
 
 		while (mineCounter < mines) {
 
-			int x = (int) (Math.random() * rows + 1);
-			int y = (int) (Math.random() * columns + 1);
+			int x = (int) (Math.random() * rows);
+			int y = (int) (Math.random() * columns);
 
 			if (boardArray[x][y].isRevealed()) {
 				continue;
@@ -52,6 +54,7 @@ public class Board {
 			}
 		}
 		updateAdjacentMines();
+		checkZero(i - 1, j - 1);
 	}
 
 	private void updateAdjacentMines() {
@@ -110,6 +113,10 @@ public class Board {
 
 		for (int i = 0; i < boardArray.length; i++) {
 			for (int j = 0; j < boardArray[i].length; j++) {
+
+				// for board testing
+				// boardArray[i][j].setRevealed(true);
+
 				if (boardArray[i][j].isRevealed()) {
 
 					if (boardArray[i][j].isMine()) {
@@ -134,8 +141,38 @@ public class Board {
 			for (int j = 0; j < boardArray[i].length; j++) {
 				// if the square is flagged, print a square symbol (unicode \u25A1)
 				System.out.print(" " + '\u25A1');
-				}
+			}
 			System.out.println("");
+		}
+	}
+
+	// need to figure out how to iteratively checkZero for every revealed cell
+	public void checkZero(int i, int j) {
+		if (boardArray[i][j].getAdjacentMines() == 0) {
+			if ((i - 1 >= 0) && (j - 1 >= 0)) {
+				boardArray[i - 1][j - 1].setRevealed(true);
+			}
+			if ((i - 1 >= 0)) {
+				boardArray[i - 1][j].setRevealed(true);
+			}
+			if ((i - 1 >= 0) && (j + 1 < boardArray[i].length)) {
+				boardArray[i - 1][j + 1].setRevealed(true);
+			}
+			if (j - 1 >= 0) {
+				boardArray[i][j - 1].setRevealed(true);
+			}
+			if (j + 1 < boardArray[i].length) {
+				boardArray[i][j + 1].setRevealed(true);
+			}
+			if ((i + 1 < boardArray.length) && (j - 1 >= 0)) {
+				boardArray[i + 1][j - 1].setRevealed(true);
+			}
+			if (i + 1 < boardArray.length) {
+				boardArray[i + 1][j].setRevealed(true);
+			}
+			if ((i + 1 < boardArray.length) && (j + 1 < boardArray[i].length)) {
+				boardArray[i + 1][j + 1].setRevealed(true);
+			}
 		}
 	}
 
