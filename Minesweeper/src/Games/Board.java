@@ -34,11 +34,17 @@ public class Board {
 					boolean isMine = Math.random() < 0.5;
 					boardArray[i][j] = new Cell(isMine);
 
+					// reveal for testing purposes - comment out for game
+					boardArray[i][j].setRevealed(true);
+
 					if (isMine) {
 						mineCounter++;
 					}
 				} else {
 					boardArray[i][j] = new Cell(false);
+
+					// reveal for testing purposes - comment out for game
+					boardArray[i][j].setRevealed(true);
 				}
 			}
 		}
@@ -50,6 +56,9 @@ public class Board {
 		// if they're mines
 		for (int i = 0; i < boardArray.length; i++) {
 			for (int j = 0; j < boardArray[i].length; j++) {
+				if (boardArray[i][j].isMine()) {
+					continue;
+				}
 				if ((i - 1 >= 0) && (j - 1 >= 0)) {
 					if (boardArray[i - 1][j - 1].isMine()) {
 						boardArray[i][j].setAdjacentMines(1);
@@ -99,7 +108,7 @@ public class Board {
 			for (int j = 0; j < boardArray[i].length; j++) {
 				if (boardArray[i][j].isRevealed()) {
 
-					System.out.print(boardArray[i][j].getAdjacentMines());
+					System.out.print(" " + boardArray[i][j].getAdjacentMines());
 
 				} else if (boardArray[i][j].isFlagged()) {
 					// if the square is flagged, print a triangle symbol (unicode \u25B7)
