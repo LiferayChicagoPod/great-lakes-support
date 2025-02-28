@@ -8,15 +8,14 @@ public class Cell {
 	private int adjacentMines;
 
 	public Cell() {
-		this(true);
-	}
-
-	public Cell(boolean mine) {
-		this.mine = mine;
 	}
 
 	public boolean isMine() {
 		return mine;
+	}
+
+	public void setMine(boolean mine) {
+		this.mine = mine;
 	}
 
 	public boolean isFlagged() {

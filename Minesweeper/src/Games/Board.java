@@ -19,39 +19,42 @@ public class Board {
 		this.columns = columns;
 		this.mines = mines;
 
-		// Starts a mine counter to track mine creation
-		Integer mineCounter = 0;
+		createCells();
+	}
+
+	public void createCells() {
 
 		// Creates an array of cells and populates it with cell objects
 		this.boardArray = new Cell[rows][columns];
 		for (int i = 0; i < boardArray.length; i++) {
 			for (int j = 0; j < boardArray[i].length; j++) {
 
-				// Creates mines randomly until all mines are used
-				// I still need to figure out how to make sure the mines are evenly distributed
-				// and all the mines are used
-				if (mineCounter < mines) {
-					boolean isMine = Math.random() < 0.5;
-					boardArray[i][j] = new Cell(isMine);
+				boardArray[i][j] = new Cell();
 
-					// reveal for testing purposes - comment out for game
-					boardArray[i][j].setRevealed(true);
-
-					if (isMine) {
-						mineCounter++;
-					}
-				} else {
-					boardArray[i][j] = new Cell(false);
-
-					// reveal for testing purposes - comment out for game
-					boardArray[i][j].setRevealed(true);
-				}
 			}
 		}
-		setAdjacentMines();
 	}
 
-	private void setAdjacentMines() {
+	public void setMines() {
+
+		Integer mineCounter = 0;
+
+		while (mineCounter < mines) {
+
+			int x = (int) (Math.random() * rows + 1);
+			int y = (int) (Math.random() * columns + 1);
+
+			if (boardArray[x][y].isRevealed()) {
+				continue;
+			} else {
+				boardArray[x][y].setMine(true);
+				mineCounter++;
+			}
+		}
+		updateAdjacentMines();
+	}
+
+	private void updateAdjacentMines() {
 		// checks all in bounds adjacent cells and increases the cell's adjacent mines
 		// if they're mines
 		for (int i = 0; i < boardArray.length; i++) {
@@ -104,6 +107,7 @@ public class Board {
 	}
 
 	public void printBoard() {
+
 		for (int i = 0; i < boardArray.length; i++) {
 			for (int j = 0; j < boardArray[i].length; j++) {
 				if (boardArray[i][j].isRevealed()) {
@@ -115,11 +119,21 @@ public class Board {
 					}
 				} else if (boardArray[i][j].isFlagged()) {
 					// if the square is flagged, print a triangle symbol (unicode \u25B7)
-					System.out.print('\u25B7');
+					System.out.print(" " + '\u25B7');
 				} else {
 					// if the square is flagged, print a square symbol (unicode \u25A1)
-					System.out.print('\u25A1');
+					System.out.print(" " + '\u25A1');
 				}
+			}
+			System.out.println("");
+		}
+	}
+
+	public void printDummyBoard() {
+		for (int i = 0; i < boardArray.length; i++) {
+			for (int j = 0; j < boardArray[i].length; j++) {
+				// if the square is flagged, print a square symbol (unicode \u25A1)
+				System.out.print(" " + '\u25A1');
 			}
 			System.out.println("");
 		}
