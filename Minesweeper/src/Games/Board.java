@@ -37,8 +37,6 @@ public class Board {
 
 	public void setMines(int i, int j) {
 
-		// boardArray[i - 1][j - 1].setRevealed(true);
-
 		Integer mineCounter = 0;
 
 		while (mineCounter < mines) {
@@ -54,7 +52,7 @@ public class Board {
 			}
 		}
 		updateAdjacentMines();
-		checkZero(i - 1, j - 1);
+		revealCell(i - 1, j - 1);
 	}
 
 	private void updateAdjacentMines() {
@@ -146,37 +144,7 @@ public class Board {
 		}
 	}
 
-	// need to figure out how to iteratively checkZero for every revealed cell
-//	public void checkZero(int i, int j) {
-//		if (boardArray[i][j].getAdjacentMines() == 0) {
-//			if ((i - 1 >= 0) && (j - 1 >= 0)) {
-//				boardArray[i - 1][j - 1].setRevealed(true);
-//			}
-//			if ((i - 1 >= 0)) {
-//				boardArray[i - 1][j].setRevealed(true);
-//			}
-//			if ((i - 1 >= 0) && (j + 1 < boardArray[i].length)) {
-//				boardArray[i - 1][j + 1].setRevealed(true);
-//			}
-//			if (j - 1 >= 0) {
-//				boardArray[i][j - 1].setRevealed(true);
-//			}
-//			if (j + 1 < boardArray[i].length) {
-//				boardArray[i][j + 1].setRevealed(true);
-//			}
-//			if ((i + 1 < boardArray.length) && (j - 1 >= 0)) {
-//				boardArray[i + 1][j - 1].setRevealed(true);
-//			}
-//			if (i + 1 < boardArray.length) {
-//				boardArray[i + 1][j].setRevealed(true);
-//			}
-//			if ((i + 1 < boardArray.length) && (j + 1 < boardArray[i].length)) {
-//				boardArray[i + 1][j + 1].setRevealed(true);
-//			}
-//		}
-//	}
-
-	public void checkZero(int i, int j) {
+	public void revealCell(int i, int j) {
 		if (i < 0 || i >= boardArray.length || j < 0 || j >= boardArray[i].length || boardArray[i][j].isRevealed()) {
 			return; // Exit if out of bounds or already revealed
 		}
@@ -185,14 +153,14 @@ public class Board {
 
 		if (boardArray[i][j].getAdjacentMines() == 0) {
 			// Recursively check neighbors
-			checkZero(i - 1, j - 1);
-			checkZero(i - 1, j);
-			checkZero(i - 1, j + 1);
-			checkZero(i, j - 1);
-			checkZero(i, j + 1);
-			checkZero(i + 1, j - 1);
-			checkZero(i + 1, j);
-			checkZero(i + 1, j + 1);
+			revealCell(i - 1, j - 1);
+			revealCell(i - 1, j);
+			revealCell(i - 1, j + 1);
+			revealCell(i, j - 1);
+			revealCell(i, j + 1);
+			revealCell(i + 1, j - 1);
+			revealCell(i + 1, j);
+			revealCell(i + 1, j + 1);
 		}
 	}
 
