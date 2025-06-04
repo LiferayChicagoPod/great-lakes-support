@@ -126,7 +126,7 @@ public class Board {
 					// if the square is flagged, print a triangle symbol (unicode \u25B7)
 					System.out.print(" " + '\u25B7');
 				} else {
-					// if the square is flagged, print a square symbol (unicode \u25A1)
+					// if the square is not flagged, print a square symbol (unicode \u25A1)
 					System.out.print(" " + '\u25A1');
 				}
 			}
