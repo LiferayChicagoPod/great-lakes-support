@@ -4,8 +4,6 @@ public class MinesweeperTerminal {
 
 	private static Board board = new Board();
 
-	public static boolean gameWon = false; // end game variable
-
 	public static void initializeGame() {
 		System.out.println("------------------------------------------------------------");
 		System.out.println("");
@@ -25,8 +23,7 @@ public class MinesweeperTerminal {
 		int rows = -1;
 		int columns = -1;
 		int mines = -1;
-		int firstrow = -1;
-		int firstcolumn = -1;
+		int[] firstCell;
 
 		do {
 			System.out.println("What level difficulty would you like to play today?");
@@ -41,13 +38,10 @@ public class MinesweeperTerminal {
 				// create an Easy Board (8x8, 10 mines)
 				board = new Board(8, 8, 10);
 				board.printDummyBoard();
-				System.out.println("");
-				System.out.println("Please enter the row and column for the square of your initial guess.");
-				System.out.print("Row?: ");
-				firstrow = Tools.getWholeNumberInput();
-				System.out.print("Column?: ");
-				firstcolumn = Tools.getWholeNumberInput();
-				board.setMines(firstrow, firstcolumn);
+
+				firstCell = chooseCell();
+
+				board.setMines(firstCell[0], firstCell[1]);
 				return board;
 			}
 
@@ -55,13 +49,10 @@ public class MinesweeperTerminal {
 				// create Medium Board (16x16, 40 mines)
 				board = new Board(16, 16, 40);
 				board.printDummyBoard();
-				System.out.println("");
-				System.out.println("Please enter the row and column for the square of your initial guess.");
-				System.out.print("Row?: ");
-				firstrow = Tools.getWholeNumberInput();
-				System.out.print("Column?: ");
-				firstcolumn = Tools.getWholeNumberInput();
-				board.setMines(firstrow, firstcolumn);
+
+				firstCell = chooseCell();
+
+				board.setMines(firstCell[0], firstCell[1]);
 				return board;
 			}
 
@@ -69,13 +60,10 @@ public class MinesweeperTerminal {
 				// create Hard Board (30x16, 99)
 				board = new Board(30, 16, 99);
 				board.printDummyBoard();
-				System.out.println("");
-				System.out.println("Please enter the row and column for the square of your initial guess.");
-				System.out.print("Row?: ");
-				firstrow = Tools.getWholeNumberInput();
-				System.out.print("Column?: ");
-				firstcolumn = Tools.getWholeNumberInput();
-				board.setMines(firstrow, firstcolumn);
+
+				firstCell = chooseCell();
+
+				board.setMines(firstCell[0], firstCell[1]);
 				return board;
 			}
 
@@ -92,16 +80,10 @@ public class MinesweeperTerminal {
 
 				board = new Board(rows, columns, mines);
 				board.printDummyBoard();
-				System.out.println("");
-				System.out.println("Please enter the row and column for the square of your initial guess.");
 
-				System.out.print("Row?: ");
-				firstrow = Tools.getWholeNumberInput();
+				firstCell = chooseCell();
 
-				System.out.print("Column?: ");
-				firstcolumn = Tools.getWholeNumberInput();
-
-				board.setMines(firstrow, firstcolumn);
+				board.setMines(firstCell[0], firstCell[1]);
 				return board;
 			} else {
 				System.out.println("Please enter a number from the menu\n");
@@ -109,6 +91,53 @@ public class MinesweeperTerminal {
 
 		} while (true);
 
+	}
+
+	public static int[] chooseCell() {
+
+		int row = -1;
+		int column = -1;
+
+		System.out.println("");
+		System.out.println("Please enter the row and column for the square of your initial guess.");
+
+		do {
+
+			System.out.print("Row?: ");
+			row = Tools.getWholeNumberInput();
+
+			if (row > board.getRows()) {
+				System.out.println("Out of bounds. Please select a row within bounds");
+				continue;
+			}
+
+			break;
+		} while (true);
+
+		do {
+			System.out.print("Column?: ");
+			column = Tools.getWholeNumberInput();
+
+			if (column > board.getColumns()) {
+				System.out.println("Out of bounds. Please select a column within bounds");
+				continue;
+			}
+
+			break;
+
+		} while (true);
+
+		do {
+			if (board.cellIsRevealed(row, column)) {
+				System.out.println("Cell revealed. Please select an unrevealed cell");
+				continue;
+			}
+
+			break;
+
+		} while (true);
+
+		return new int[] { row, column };
 	}
 
 	public static void playMinesweeper() {
