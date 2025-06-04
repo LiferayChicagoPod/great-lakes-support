@@ -35,6 +35,7 @@ public class Board {
 		}
 	}
 
+	// this is called once during the initial creation of the board
 	public void setMines(int i, int j) {
 
 		Integer mineCounter = 0;
@@ -55,6 +56,7 @@ public class Board {
 		revealCell(i - 1, j - 1);
 	}
 
+	// this is only called once during the initial creation of the board
 	private void updateAdjacentMines() {
 		// checks all in bounds adjacent cells and increases the cell's adjacent mines
 		// if they're mines
