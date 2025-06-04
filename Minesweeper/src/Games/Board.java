@@ -4,6 +4,8 @@ public class Board {
 	private int rows;
 	private int columns;
 	private int mines;
+	private boolean gameWon = false; // end game variable
+	private boolean gameLost = false; // end game variable
 	private Cell[][] boardArray;
 
 	// default constructor
@@ -166,15 +168,20 @@ public class Board {
 		}
 	}
 
+	public boolean cellIsRevealed(int i, int j) {
+		return boardArray[i - 1][j - 1].isRevealed();
+	}
+
 	public int getRows() {
 		return rows;
 	}
 
-	public int getColums() {
+	public int getColumns() {
 		return columns;
 	}
 
 	public int getMines() {
 		return mines;
 	}
+
 }
