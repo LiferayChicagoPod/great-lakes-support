@@ -99,7 +99,7 @@ public class MinesweeperTerminal {
 		int column = -1;
 
 		System.out.println("");
-		System.out.println("Please enter the row and column for the square of your initial guess.");
+		System.out.println("Please enter the row and column for the square of your guess.");
 
 		do {
 
