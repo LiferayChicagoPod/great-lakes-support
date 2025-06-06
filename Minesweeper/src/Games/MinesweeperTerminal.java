@@ -75,8 +75,17 @@ public class MinesweeperTerminal {
 				System.out.print("How many columns would you like to have? Enter selection here: ");
 				columns = Tools.getWholeNumberInput();
 
-				System.out.print("How many mines would you like to have? Enter selection here: ");
-				mines = Tools.getWholeNumberInput();
+				do {
+					System.out.print("How many mines would you like to have? Enter selection here: ");
+					mines = Tools.getWholeNumberInput();
+
+					// prevent user from creating all mines or more mines than cells
+					if (mines >= columns * rows) {
+						System.out.println("Must create fewer mines than cells.");
+						continue;
+					}
+					break;
+				} while (true);
 
 				board = new Board(rows, columns, mines);
 				board.printDummyBoard();
