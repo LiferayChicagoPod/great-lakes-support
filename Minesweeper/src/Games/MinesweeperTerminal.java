@@ -152,16 +152,44 @@ public class MinesweeperTerminal {
 	public static void playMinesweeper() {
 
 		// prompt user for a cell to update
-		// validate that the cell is within bounds and not revealed
-		// prompt user for update type (mark or reveal)
-		// do the update to the cell
-		// board.revealCell() or board.flagCell()
-		// print board
-		// check lose condition
-		// print loss message
-		// check win condition
-		// print win message
-		// repeat
+		int[] cell = chooseCell();
+
+		// prompt user for update type (flag, unflag, or reveal)
+		do {
+			System.out.println("Do you want to (1)flag, (2)unflag, or (3)reveal the cell?");
+			int choice = Tools.getWholeNumberInput();
+			if (choice == 1) {
+				board.flagCell(cell[0], cell[1]);
+				board.printBoard();
+				playMinesweeper();
+
+			} else if (choice == 2) {
+				board.unflagCell(cell[0], cell[1]);
+				board.printBoard();
+				playMinesweeper();
+
+			} else if (choice == 3) {
+				board.revealCell(cell[0] - 1, cell[1] - 1);
+
+				if (board.checkLoseContition(cell[0], cell[1])) {
+					board.printBoard();
+					System.out.println("You selected a mine!");
+					break;
+
+				} else if (board.checkWinContition()) {
+					board.printBoard();
+					System.out.println("You found all the mines!");
+					break;
+
+				} else {
+					board.printBoard();
+					playMinesweeper();
+				}
+
+			} else {
+				System.out.println("Please choose (1)flag, (2)unflag, or (3)reveal");
+			}
+		} while (true);
 	}
 
 }
