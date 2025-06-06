@@ -113,6 +113,12 @@ public class Board {
 
 	public void printBoard() {
 
+		System.out.print(" ");
+		for (int i = 0; i < boardArray.length; i++) {
+			System.out.print((i + 1) + " ");
+		}
+		System.out.println();
+
 		for (int i = 0; i < boardArray.length; i++) {
 			for (int j = 0; j < boardArray[i].length; j++) {
 
@@ -170,6 +176,14 @@ public class Board {
 
 	public boolean cellIsRevealed(int i, int j) {
 		return boardArray[i - 1][j - 1].isRevealed();
+	}
+
+	public void flagCell(int i, int j) {
+
+	}
+
+	public String checkWinLossContition() {
+
 	}
 
 	public int getRows() {
