@@ -106,37 +106,36 @@ public class MinesweeperTerminal {
 
 		int row = -1;
 		int column = -1;
-
-		System.out.println("");
-		System.out.println("Please enter the row and column for the square of your guess.");
-
 		do {
+			System.out.println("");
+			System.out.println("Please enter the row and column for the square of your guess.");
 
-			System.out.print("Row?: ");
-			row = Tools.getWholeNumberInput();
+			do {
 
-			if (row > board.getRows()) {
-				System.out.println("Out of bounds. Please select a row within bounds");
-				continue;
-			}
+				System.out.print("Row?: ");
+				row = Tools.getWholeNumberInput();
 
-			break;
-		} while (true);
+				if (row > board.getRows()) {
+					System.out.println("Out of bounds. Please select a row within bounds");
+					continue;
+				}
 
-		do {
-			System.out.print("Column?: ");
-			column = Tools.getWholeNumberInput();
+				break;
+			} while (true);
 
-			if (column > board.getColumns()) {
-				System.out.println("Out of bounds. Please select a column within bounds");
-				continue;
-			}
+			do {
+				System.out.print("Column?: ");
+				column = Tools.getWholeNumberInput();
 
-			break;
+				if (column > board.getColumns()) {
+					System.out.println("Out of bounds. Please select a column within bounds");
+					continue;
+				}
 
-		} while (true);
+				break;
 
-		do {
+			} while (true);
+
 			if (board.cellIsRevealed(row, column)) {
 				System.out.println("Cell revealed. Please select an unrevealed cell");
 				continue;

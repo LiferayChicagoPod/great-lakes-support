@@ -4,8 +4,6 @@ public class Board {
 	private int rows;
 	private int columns;
 	private int mines;
-	private boolean gameWon = false; // end game variable
-	private boolean gameLost = false; // end game variable
 	private Cell[][] boardArray;
 
 	// default constructor
@@ -112,11 +110,11 @@ public class Board {
 	}
 
 	public void printBoard() {
-		for(int i=0;i<boardArray.length; i++){
-			System.out.print(" " + (i+1));
+		for (int i = 0; i < boardArray.length; i++) {
+			System.out.print(" " + (i + 1));
 		}
 		System.out.println("");
-		for(int i=0;i<boardArray.length; i++){
+		for (int i = 0; i < boardArray.length; i++) {
 			System.out.print(" -");
 		}
 		System.out.println("");
@@ -146,11 +144,11 @@ public class Board {
 	}
 
 	public void printDummyBoard() {
-		for(int i=0;i<boardArray.length; i++){
-			System.out.print(" " + (i+1));
+		for (int i = 0; i < boardArray.length; i++) {
+			System.out.print(" " + (i + 1));
 		}
 		System.out.println("");
-		for(int i=0;i<boardArray.length; i++){
+		for (int i = 0; i < boardArray.length; i++) {
 			System.out.print(" -");
 		}
 		System.out.println("");
