@@ -112,7 +112,14 @@ public class Board {
 	}
 
 	public void printBoard() {
-
+		for(int i=0;i<boardArray.length; i++){
+			System.out.print(" " + (i+1));
+		}
+		System.out.println("");
+		for(int i=0;i<boardArray.length; i++){
+			System.out.print(" -");
+		}
+		System.out.println("");
 		for (int i = 0; i < boardArray.length; i++) {
 			for (int j = 0; j < boardArray[i].length; j++) {
 
@@ -139,6 +146,14 @@ public class Board {
 	}
 
 	public void printDummyBoard() {
+		for(int i=0;i<boardArray.length; i++){
+			System.out.print(" " + (i+1));
+		}
+		System.out.println("");
+		for(int i=0;i<boardArray.length; i++){
+			System.out.print(" -");
+		}
+		System.out.println("");
 		for (int i = 0; i < boardArray.length; i++) {
 			for (int j = 0; j < boardArray[i].length; j++) {
 				// if the square is flagged, print a square symbol (unicode \u25A1)
