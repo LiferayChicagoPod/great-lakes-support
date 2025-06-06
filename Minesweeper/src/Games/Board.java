@@ -113,12 +113,6 @@ public class Board {
 
 	public void printBoard() {
 
-		System.out.print(" ");
-		for (int i = 0; i < boardArray.length; i++) {
-			System.out.print((i + 1) + " ");
-		}
-		System.out.println();
-
 		for (int i = 0; i < boardArray.length; i++) {
 			for (int j = 0; j < boardArray[i].length; j++) {
 
@@ -180,10 +174,46 @@ public class Board {
 
 	public void flagCell(int i, int j) {
 
+		if (!boardArray[i - 1][j - 1].isRevealed() && !boardArray[i - 1][j - 1].isFlagged()) {
+			boardArray[i - 1][j - 1].setFlagged(true);
+		} else {
+			System.out.println("Cell cannot be flagged");
+		}
 	}
 
-	public String checkWinLossContition() {
+	public void unflagCell(int i, int j) {
 
+		if (boardArray[i - 1][j - 1].isFlagged()) {
+			boardArray[i - 1][j - 1].setFlagged(false);
+		} else {
+			System.out.println("Cell cannot be unflagged");
+		}
+	}
+
+	public boolean checkLoseContition(int i, int j) {
+
+		if (boardArray[i - 1][j - 1].isRevealed() && boardArray[i - 1][j - 1].isMine()) {
+			return true;
+		}
+		return false;
+	}
+
+	public boolean checkWinContition() {
+
+		Integer revealed = 0;
+
+		for (int i = 0; i < boardArray.length; i++) {
+			for (int j = 0; j < boardArray[i].length; j++) {
+				if (boardArray[i][j].isRevealed()) {
+					revealed++;
+				}
+			}
+		}
+
+		if (rows * columns - mines == revealed) {
+			return true;
+		}
+		return false;
 	}
 
 	public int getRows() {
