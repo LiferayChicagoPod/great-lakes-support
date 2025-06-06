@@ -220,9 +220,14 @@ public class Board {
 				if (boardArray[i][j].isRevealed()) {
 					revealed++;
 				}
+				// debug
+				System.out.println("i = " + i + " j = " + j + " revealed = " + revealed);
 			}
 		}
 
+		// debug
+		System.out.println("Rows = " + rows + " columns = " + columns + " mines = " + mines);
+		System.out.println("rows * columns - mines = " + (rows * columns - mines));
 		if (rows * columns - mines == revealed) {
 			return true;
 		}
