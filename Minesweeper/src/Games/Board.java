@@ -203,7 +203,7 @@ public class Board {
 		}
 	}
 
-	public boolean checkLoseContition(int i, int j) {
+	public boolean checkLoseCondition(int i, int j) {
 
 		if (boardArray[i - 1][j - 1].isRevealed() && boardArray[i - 1][j - 1].isMine()) {
 			return true;
@@ -211,7 +211,7 @@ public class Board {
 		return false;
 	}
 
-	public boolean checkWinContition() {
+	public boolean checkWinCondition() {
 
 		Integer revealed = 0;
 
