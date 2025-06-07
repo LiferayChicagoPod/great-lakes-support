@@ -180,12 +180,12 @@ public class MinesweeperTerminal {
 		} else {
 			board.revealCell(cell[0] - 1, cell[1] - 1);
 
-			if (board.checkLoseContition(cell[0], cell[1])) {
+			if (board.checkLoseCondition(cell[0], cell[1])) {
 				board.printBoard();
-				System.out.println("You selected a mine!");
+				System.out.println("KABOOM! \nYou selected a mine!");
 				return;
 
-			} else if (board.checkWinContition()) {
+			} else if (board.checkWinCondition()) {
 				board.printBoard();
 				System.out.println("You found all the mines!");
 				return;
