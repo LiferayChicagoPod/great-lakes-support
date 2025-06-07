@@ -45,7 +45,7 @@ public class Board {
 			int x = (int) (Math.random() * rows);
 			int y = (int) (Math.random() * columns);
 
-			if (x == i - 1 && y == j - 1) {
+			if ((x == i - 1 && y == j - 1) || boardArray[x][y].isMine()) {
 				continue;
 			} else {
 				boardArray[x][y].setMine(true);
@@ -220,14 +220,9 @@ public class Board {
 				if (boardArray[i][j].isRevealed()) {
 					revealed++;
 				}
-				// debug
-				System.out.println("i = " + i + " j = " + j + " revealed = " + revealed);
 			}
 		}
 
-		// debug
-		System.out.println("Rows = " + rows + " columns = " + columns + " mines = " + mines);
-		System.out.println("rows * columns - mines = " + (rows * columns - mines));
 		if (rows * columns - mines == revealed) {
 			return true;
 		}
