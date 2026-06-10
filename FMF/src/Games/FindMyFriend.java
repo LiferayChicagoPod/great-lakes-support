@@ -1,13 +1,19 @@
 package Games;
 
-public class MinesweeperTerminal {
+public class FindMyFriend {
 
 	private static Board board = new Board();
 
 	public static void initializeGame() {
+		int players = -1;
 		System.out.println("------------------------------------------------------------");
 		System.out.println("");
-		System.out.println("Welcome to Minesweeper!");
+		System.out.println("How many players will be playing?");
+
+		players = Tools.getWholeNumberInput();
+
+		
+
 
 		// creates the board object that references object created in createBoard() so
 		// that we don't have to know which board type was created to proceed
