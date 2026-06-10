@@ -28,8 +28,6 @@ public class FindMyFriend {
 		int choice = -1;
 		int rows = -1;
 		int columns = -1;
-		int mines = -1;
-		int[] firstCell;
 
 		do {
 			System.out.println("What level difficulty would you like to play today?");
