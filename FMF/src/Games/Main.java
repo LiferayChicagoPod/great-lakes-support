@@ -13,17 +13,37 @@ public class Main {
 		do {
 
 			// get user game choice (we can add more games in to the menu in the future
-			System.out.println("\nSelect a Game \n\t1: Minesweeper \n\t2: Exit\n");
+			System.out.println("------------------------------------------------------------");
+			String bigArt = """
+               XXXXX          XXXXX
+              X . . X        X . . X
+              X  O  X        X  -  X
+               XXXXX          XXXXX
+                 |              |
+           ______|______  ______|______
+          /      |      \\/     |      \\
+         /       |      /\\     |       \\
+        /        |      \\/     |        \\
+                 |              |
+                / \\           / \\
+               /   \\         /   \\
+              /     \\       /     \\
+             /       \\     /       \\
+            """;
+
+        	System.out.println(bigArt);
+			System.out.println("Welcome to Find My Friend!");
+			System.out.println("\nSelect an Option \n\t1: Read Rules \n\t2: Start Game\n");
 			System.out.print("Enter selection here: ");
 
 			choice = Tools.getWholeNumberInput();
 
 			if (choice == 1) {
-				MinesweeperTerminal.initializeGame();
+				Rules.printRules();
 			}
 
 			else if (choice == 2) {
-				break;
+				FindMyFriend.initializeGame();
 
 			} else {
 				System.out.println("Please enter a number from the menu");
